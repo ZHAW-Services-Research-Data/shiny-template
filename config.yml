@@ -1,0 +1,9 @@
+title: "Dashboard title"
+
+brand: "black" # options are: standard | black
+
+legal_notice:
+  - "ZHAW Zurich University of Applied Sciences"
+  - "Department"
+  - "Institute"
+  - "Contact"
