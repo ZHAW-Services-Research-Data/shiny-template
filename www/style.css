@@ -25,6 +25,48 @@ html, body {
 }
 
 
+/* Ensure Shiny elements inherit global typography */
+.container,
+.container-fluid,
+.nav,
+.nav-tabs,
+.nav-link,
+.tab-content,
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  color: inherit;
+}
+
+
+/* Links */
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* Tabs */
+.nav-tabs {
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.nav-tabs .nav-link {
+  background-color: #ffffff;
+  border: none;
+}
+
+.nav-tabs .nav-link.active {
+  border-bottom: 2px solid #000000;
+}
+
+
 /* Main application layout container */
 .app-page {
   min-height: 100vh;
