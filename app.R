@@ -34,7 +34,7 @@ source("dashboard_ui.R")
 source("dashboard_server.R")
 
 brand_class <- paste0("brand-", config$brand)
-logo_file   <- paste0("logo-", config$brand, ".png")
+logo_file   <- "logo-negativ.png" # negative logo for blue header
 
 ui <- fluidPage(
   tags$head(

@@ -7,10 +7,19 @@
 /* Design tokens (global spacing variables) */
 :root {
   --app-padding-y: 10px;
-  --app-padding-x: 20px;
+  --app-padding-x: 30px;
   /* Bootstrap 5 primary color override — ZHAW blue */
   --bs-blue: #0064a6;
   --bs-primary: #0064a6;
+  /* Logo size and Schutzzone (= 1/3 of logo height on all sides, per ZHAW CD) */
+  --logo-height: 40px;
+  --schutzzone: calc(var(--logo-height) / 3);
+}
+
+/* Remove Bootstrap container-fluid padding so header/footer span full width */
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* Global typography and base layout reset */
@@ -70,11 +79,25 @@ a:hover {
 
 /* Header section containing logo and title */
 .app-header {
-  padding: var(--app-padding-y) var(--app-padding-x);
+  padding: 0;
   display: flex;
   align-items: center;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e6e6e6;
+  background-color: #0064a6; /* ZHAW blue */
+}
+
+/* Logo: Schutzzone = 1/3 of logo height on all sides (per ZHAW CD) */
+.app-logo {
+  height: var(--logo-height);
+  margin: var(--schutzzone);
+  display: block;
+}
+
+/* Title: white text on blue header */
+.app-title {
+  color: #ffffff;
+  margin: 0;
+  font-size: 3rem;
+  font-weight: normal;
 }
 
 /* Main content wrapper between header and footer */
@@ -87,14 +110,8 @@ a:hover {
 .app-footer {
   padding: var(--app-padding-y) var(--app-padding-x);
   background-color: #ffffff;
-  border-top: 1px solid #e6e6e6;
   font-size: 12px;
   line-height: 1;
   text-align: left;
-  color: #0064a6; /* ZHAW blue — aligned with LimeSurvey template */
-}
-
-/* Black brand variant: override footer color */
-.brand-black .app-footer {
   color: #000000;
 }
