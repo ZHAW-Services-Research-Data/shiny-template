@@ -40,6 +40,7 @@ dashboard_ui.R              # Edit this – dashboard UI content
 dashboard_server.R          # Edit this – dashboard server logic
 
 config.yml                  # Branding and legal configuration
+write_manifest.R            # Run once before deploying to Posit Connect
 www/
   style.css                 # Styling
   logo-standard.png
@@ -115,3 +116,34 @@ shiny::runApp()
 ```
 
 Or open `app.R` in RStudio and click **Run App**.
+
+---
+
+## Deploy to Posit Connect
+
+Posit Connect requires a `manifest.json` that records the exact R version and
+package versions your app uses. Generate it by running:
+
+```bash
+Rscript write_manifest.R
+```
+
+This works from any working directory — the script always writes `manifest.json`
+next to itself. If `rsconnect` is not yet installed, the script installs it
+automatically.
+
+The script works for any content type that Posit Connect supports (Shiny apps,
+Plumber APIs, R Markdown, Quarto). It detects the content type automatically
+from the files present in the app directory.
+
+Once `manifest.json` has been generated:
+
+1. Commit it to version control alongside your app.
+2. In Posit Connect, create a new content item and upload the folder, **or**
+   use `rsconnect::deployApp()` from R to push directly:
+
+```r
+rsconnect::deployApp(server = "your-connect-instance.example.com")
+```
+
+Re-run `write_manifest.R` whenever you add or update a package dependency.
