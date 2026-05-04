@@ -95,6 +95,8 @@ legal_notice:
 
 - `brand` controls the logo and footer color.
 - `legal_notice` items are displayed in the footer separated by dots.
+- `partner_logos` should be prepared in `1500 x 850 px` (about `1.76:1`),
+  and the template scales them into a consistent display frame.
 
 ---
 

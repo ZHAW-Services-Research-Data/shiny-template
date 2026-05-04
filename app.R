@@ -33,13 +33,13 @@ ui <- fluidPage(
   div(
     class = "app-page",
     corporate_header(
-      title = config$title,
+      title = "Data Explorer",
       logo = "zhaw-logo-negativ.png",
       logo_alt = "ZHAW Zurich University of Applied Sciences",
       links = config$header_links
     ),
     corporate_content(
-      dashboard_ui()
+      dashboard_ui(title = config$title)
     ),
     corporate_partner_strip(
       partner_logos = config$partner_logos
