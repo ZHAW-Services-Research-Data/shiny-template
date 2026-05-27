@@ -153,8 +153,8 @@ a:hover {
 }
 
 .app-partner-logo {
-  height: 44px;
-  width: calc(44px * 1500 / 850);
+  height: 60px;
+  width: calc(60px * 1500 / 850);
   aspect-ratio: 1500 / 850;
   object-fit: contain;
   display: block;

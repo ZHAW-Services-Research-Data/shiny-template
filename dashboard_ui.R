@@ -26,8 +26,7 @@ dashboard_ui <- function(title = NULL) {
   }
 
   tagList(
-    h2(app_title),
-    p("Replace this text with a short description of your dashboard.")
+    p("Dashboard content")
     # --- Add your inputs and outputs here ---
   )
 }
