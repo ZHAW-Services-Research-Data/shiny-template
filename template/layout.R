@@ -99,12 +99,51 @@ corporate_partner_strip <- function(partner_logos = NULL) {
 #' Renders the legal notice footer. Always shown.
 #'
 #' @param legal Named list passed to render_legal_notice().
+#' @param references Optional named list with keys 'project_database' and 'ord',
+#'   each a list of named lists with 'label' and 'url'. Omitted sections are hidden.
 #'
 #' @return A <footer> tag element.
-corporate_footer <- function(legal) {
+corporate_footer <- function(legal, references = NULL) {
   tags$footer(
     class = "app-footer",
-    render_legal_notice(legal)
+    render_legal_notice(legal),
+    render_references(references)
+  )
+}
+
+
+# Renders a cross-reference section from a named list with optional keys
+# 'project_database' and 'ord', each a list of {label, url} entries.
+# Returns NULL if both sections are absent or empty.
+render_references <- function(cfg) {
+  if (is.null(cfg)) return(NULL)
+
+  make_link_row <- function(section_label, links) {
+    if (is.null(links) || length(links) == 0) return(NULL)
+    link_tags <- lapply(links, function(l) {
+      tags$a(href = l$url, l$label, target = "_blank")
+    })
+    interleaved <- list()
+    for (i in seq_along(link_tags)) {
+      interleaved <- c(interleaved, list(link_tags[[i]]))
+      if (i < length(link_tags)) interleaved <- c(interleaved, list(" · "))
+    }
+    tags$p(
+      tags$span(paste0(section_label, ": "), class = "app-footer-ref-label"),
+      do.call(tagList, interleaved)
+    )
+  }
+
+  rows <- list(
+    make_link_row("Projektdatenbank", cfg$project_database),
+    make_link_row("ORD",              cfg$ord)
+  )
+  rows <- Filter(Negate(is.null), rows)
+  if (length(rows) == 0) return(NULL)
+
+  tagList(
+    tags$hr(class = "app-footer-divider"),
+    do.call(tagList, rows)
   )
 }
 

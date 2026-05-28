@@ -9,15 +9,25 @@ header_links:
 legal_notice:
   institution: "ZHAW Zurich University of Applied Sciences"
   unit:
-    label: "Unit"       # leave blank to hide
-    link_text: "Link to unit"   # optional: display text for the link
-    link_url: "linktoun.it"    # optional: URL for the link
+    label: "Unit"    # leave blank to hide
+    link_text: "Visit unit website"
+    link_url: "https://www.zhaw.ch/..."
   department: "Department"
   institute: "Institute"
-  contact: "Contact"
+  contact: "firstname.lastname@zhaw.ch"  # email is linked automatically
 
-partner_logos:
+partner_logos:                           # image files go in www/
   - filename: logoipsum-349.png
-    alt: "Ipsum logo 1"
+    alt: "Partner name 1"
   - filename: logoipsum-354.png
-    alt: "Ipsum logo 2"
+    alt: "Partner name 2"
+
+references:                              # remove entries to hide
+  project_database:
+    - label: "Project name"
+      url: "https://..."
+  ord:
+    - label: "GitHub repository"
+      url: "https://github.com/..."
+    - label: "Data repository"
+      url: "https://zenodo.org/..."

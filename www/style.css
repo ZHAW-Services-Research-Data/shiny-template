@@ -173,3 +173,13 @@ a:hover {
 .app-footer p {
   margin: 0;
 }
+
+.app-footer-divider {
+  border: none;
+  border-top: 1px solid #e6e6e6;
+  margin: 8px 0;
+}
+
+.app-footer-ref-label {
+  font-weight: bold;
+}

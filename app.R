@@ -45,7 +45,8 @@ ui <- fluidPage(
       partner_logos = config$partner_logos
     ),
     corporate_footer(
-      legal = config$legal_notice
+      legal = config$legal_notice,
+      references = config$references
     )
   )
 )
